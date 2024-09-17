@@ -1,24 +1,25 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import GaugeCard from './src/components/GaugeCard/GaugeCard'
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+
+const main = document.createElement('div')
+
+main.id = 'app'
+
+main.innerHTML = `
+<div class="container">
+
+  <div class="row d-flex justify-content-center">
+
+    ${ GaugeCard({id:"gauge1",title:"Sincronizacion"}).outerHTML}
+    ${ GaugeCard({id:"gauge2",title:"Sincronizacion"}).outerHTML}
+    ${ GaugeCard({id:"gauge3",title:"Sincronizacion"}).outerHTML}
+
   </div>
+
+</div>
+
+
 `
 
-setupCounter(document.querySelector('#counter'))
+document.querySelector('body').appendChild(main)
